@@ -1,45 +1,22 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 class App extends React.Component {
     state = {
-        count: 0
+        isLoading: true
     };
-
-    add = () => {
-        this.setState(current => ({
-            count: current.count + 1
-        }));
-    };
-    minus = () => {
-        this.setState(now => ({
-            count: now.count - 1
-        }));
-    };
-    constructor(props) {
-        super(props);
-        console.log("Just about to mount the component...");
-    }
 
     componentDidMount() {
-        console.log("Component rendered!");
+        setTimeout( () => {
+            this.setState({ isLoading: false, Ryuha: true });
+            console.log(this.state);
+        }, 6000);
     }
-    componentDidUpdate() {
-         console.log("I just updated.");
-    } 
-    componentWillUnmount() {
-        console.log("Goodbye, cruel world!");
-    }
+
     render() {
-        console.log("I'm rendering....")
-        return (
-            <div>
-                <h1>The number is : {this.state.count}</h1>
-                {/* this.add()로 쓸 경우, 즉시 */}
-                <button onClick={this.add}>Add</button>
-                <button onClick={this.minus}>Minus </button>
-            </div>
-        );
+        console.log("this.state");
+        // C++ using namespace 사용과 비슷한 듯
+        const { isLoading } = this.state;
+        return <div>{isLoading ? "Loading" : "We are ready"};</div>;
     }
 }
 
