@@ -19,26 +19,26 @@ class App extends React.Component {
         // this.setState({ movies: movies });
         this.setState({ movies, isLoading: false });
     };
+    
     componentDidMount() {
         this.getMovies();
-
-        setTimeout(() => {
-            console.log(this.state);
-        }, 2000);
     }
 
     render() {
         // C++ using namespace 사용과 비슷한 듯
         const { isLoading, movies } = this.state;
+
         return (
             <section className="container">
+                <div className="movies">
                 {isLoading ? (
                     <div className='loader'>
                         <span className='loader_text'>Loading.....</span>
                     </div>
                 ) : (
                     movies.map((movie) => <Movie key={movie.id} id={movie.id} year={movie.year} title={movie.title} summary={movie.summary} poster={movie.medium_cover_image} genres={movie.genres} />)
-                )}
+                    )}
+                </div>
             </section>
         );
     }

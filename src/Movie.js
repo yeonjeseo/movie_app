@@ -28,7 +28,7 @@ Movie.propTypes = {
     title: PropTypes.string.isRequired,
     summary: PropTypes.string.isRequired,
     poster: PropTypes.string.isRequired,
-    genres: PropTypes.arrayOf(PropTypes.string).isRequired
+    genres: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default Movie;
